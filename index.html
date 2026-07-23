@@ -24,6 +24,37 @@
     font-family:'Jost',sans-serif;
     font-weight:300;
     overflow-x:hidden;
+    position:relative;
+  }
+
+  /* ---------- ANIMATED GOLD LIGHT SWEEP ---------- */
+  .gold-sweep{
+    position:fixed;inset:0;pointer-events:none;z-index:1;mix-blend-mode:screen;
+  }
+  .gold-sweep::before, .gold-sweep::after{
+    content:'';position:absolute;top:-20%;height:140%;width:55%;
+    background:linear-gradient(100deg,
+      transparent 0%,
+      rgba(198,161,91,0) 35%,
+      rgba(198,161,91,.06) 48%,
+      rgba(198,161,91,.10) 50%,
+      rgba(198,161,91,.06) 52%,
+      rgba(198,161,91,0) 65%,
+      transparent 100%);
+    animation: sweep 16s ease-in-out infinite;
+  }
+  .gold-sweep::after{
+    animation-delay:-8s;
+    animation-duration:22s;
+    opacity:.6;
+  }
+  @keyframes sweep{
+    0%{ transform:translateX(-60vw) rotate(3deg); }
+    50%{ transform:translateX(60vw) rotate(3deg); }
+    100%{ transform:translateX(-60vw) rotate(3deg); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .gold-sweep::before, .gold-sweep::after{ animation:none; display:none; }
   }
   h1,h2,h3,.serif{font-family:'Playfair Display',serif;}
   a{color:inherit;text-decoration:none;}
@@ -419,6 +450,7 @@
 </style>
 </head>
 <body>
+<div class="gold-sweep"></div>
 
 <nav>
   <div class="nav-logo">Rakha P M.</div>
@@ -452,7 +484,7 @@
       <div class="portrait-tag">RPL · SMKN 3 Jember</div>
     </div>
   </div>
-  
+  <div class="hero-index">Gulir untuk menjelajah</div>
 </section>
 
 <!-- ABOUT -->
